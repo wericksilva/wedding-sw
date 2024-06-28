@@ -1,24 +1,38 @@
 name: deploy
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main  # Defina o branch principal do seu repositório
+  pull_request:
+    branches:
+      - main  # Também inclua o branch principal para pull requests
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20.x'  # Versão do Node.js que você deseja usar
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Versão do Node.js que você deseja usar
 
-    - name: Install dependencies
-     run: |
-          npm ci
-          npm run build
+      - name: Install dependencies
+        run: npm install
 
-      name: deploy
-      with:
-          publish_dir: ./build
+      - name: Build project
+        run: npm run build  # Substitua pelo comando correto de build do seu projeto
+
+      - name: Deploy to Hosting Service
+        # Exemplo de deploy para GitHub Pages usando gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build  # Diretório onde o build do seu projeto está gerado
+          publish_branch: gh-pages  # Ramificação onde o conteúdo será publicado
+          force_orphan: true  # Opcional: forçar a ramificação órfã
+
