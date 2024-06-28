@@ -34,5 +34,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build  # Diretório onde o build do seu projeto está gerado
           publish_branch: gh-pages  # Ramificação onde o conteúdo será publicado
-          force_orphan: true  # Opcional: forçar a ramificação órfã
+          force_orphan: true  # Opcional: forçar a ramificação
 
