@@ -1,6 +1,7 @@
 {
   "name": "wedding",
   "version": "0.1.0",
+  "homepage": "wedding-sw/"
   "private": true,
   "scripts": {
     "dev": "next dev",
