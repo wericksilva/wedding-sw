@@ -1,13 +1,14 @@
 {
   "name": "wedding",
   "version": "0.1.0",
-  "homepage": "wedding-sw/",
+  "homepage": "https://wericksilva.github.io/wedding-sw/",  // Corrigido para a URL correta do GitHub Pages
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "next build && gh-pages -d build"  // Adicionado o script 'deploy' para build e deploy
   },
   "dependencies": {
     "next": "14.2.4",
@@ -17,5 +18,4 @@
   "devDependencies": {
     "gh-pages": "^6.1.1"
   }
-  
 }
