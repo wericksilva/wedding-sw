@@ -37,6 +37,7 @@ export default function Home() {
         </header>
 
 <body>
+    
 <div className="container">
 <div>
 <img src="/baner.svg" width="300" className="me-12" />
